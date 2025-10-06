@@ -35,38 +35,6 @@ hconnect = frozenset([
 hconnect2 = frozen([
     (HandLandmark.THUMB_TIP, HandLandmark.INDEX_FINGER_TIP)
 ])
-
-new_frame_time = 0
-prev_frame_time = 0
-
-cap = cv2.VideoCapture(0)
-
-with mp_hands.Hands(
-    min_detection_confidence = 0.5 
-    min_tracking_confidence = 0.5
-    max_num_hands = 2)
-
-    as hands:
-    while cap.isOpened():
-
-        success, image = cap.read()
-
-        if not success:
-            print("Empty frame")
-            continue
-
-        image = cv2.flip(image,1)
-        results = hands.process(cv2.cvtColor(image,cv2.COLOR_BGR2RGB))
-
-        hand = str(results.multi_handedness)
-
-        if 'Right' in hand:
-            whathand = 'Hand : Right'
-        elif 'Left' in hand:
-            whathand = 'Hand : Left'
-        else:
-            whathand = 'Hand : -'
-
-        
+  
 
 
