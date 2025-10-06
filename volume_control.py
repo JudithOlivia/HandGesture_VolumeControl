@@ -1,4 +1,4 @@
-from cv2 import cv2
+import cv2
 import mediapipe as mp
 import time, math
 import pyautogui
@@ -31,3 +31,4 @@ hconnect = frozenset([
     (HandLandmark.PINKY_PIP, HandLandmark.PINKY_DIP),
     (HandLandmark.PINKY_DIP, HandLandmark.PINKY_TIP)
 ])
+
