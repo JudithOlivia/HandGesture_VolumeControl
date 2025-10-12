@@ -32,9 +32,81 @@ hconnect = frozenset([
     (HandLandmark.PINKY_DIP, HandLandmark.PINKY_TIP)
 ])
 
-hconnect2 = frozen([
+hconnect2 = frozenset([
     (HandLandmark.THUMB_TIP, HandLandmark.INDEX_FINGER_TIP)
 ])
   
+
+new_frame_time = 0
+prev_frame_time = 0
+
+cap = cv2.VideoCapture(0)
+
+with mp_hands.Hands(
+    min_detection_confidence=0.7,
+    min_tracking_confidence=0.5,
+    max_num_hands=2) as hands:
+
+    while cap:
+
+        success, image = cap.read()
+
+        if not success:
+            print("Ignoring empty camera frame.")
+            continue
+
+        image = cv2.flip(image, 1)
+        results = hands.process(cv2.cvtColor(image, cv2.COLOR_BGR2RGB))
+
+
+        hand = str(results.multi_handedness)
+
+        if 'Right' in hand:
+            whathand = 'Hand: Right'
+        elif 'Left' in hand:
+            whathand = 'Hand: Left'
+        else:
+            whathand = 'Hand: -'
+
+        image.flags.writeable = True
+        imageHeight, imageWidth, _ = image.shape 
+
+        gesture = gesture = 'Volume: -'
+
+        if results.multi_hand_landmarks:
+            for hand_landmarks in results.multi_hand_landmarks:
+                mp_drawing.draw_landmarks(
+                    image, hand_landmarks, hconnect, mp_drawing.DrawingSpec(color=(121,22,76), thickness=2, circle_radius=4),
+                    mp_drawing.DrawingSpec(color=(0,225, 0), thickness=2))
+                
+                normalizedLandmark = hand_landmarks.landmark[4]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                ThumbTipX = pixelCoordinatesLandmark[0]
+                ThumbTipY = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[6]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Index_Pip_x = pixelCoordinatesLandmark[0]
+                Index_Pip_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[10]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Middle_Pip_x = pixelCoordinatesLandmark[0]
+                Middle_Pip_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[14]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Ring_Pip_x = pixelCoordinatesLandmark[0]
+                Ring_Pip_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[18]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Pinky_Pip_x = pixelCoordinatesLandmark[0]
+                Pinky_Pip_y = pixelCoordinatesLandmark[1]
+
+
+                
+
+    
 
 
