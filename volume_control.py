@@ -153,7 +153,14 @@ with mp_hands.Hands(
                 Pinky_Tip_x = pixelCoordinatesLandmark[0]
                 Pinky_Tip_y = pixelCoordinatesLandmark[1]
 
-                #------
+                #-----
+                ThumbIndex_Diff_x = ThumbTipX - Index_Tip_x
+                ThumbIndex_Diff_y = ThumbTipY - Index_Tip_y
+                ThumbIndex_Diff = math.sqrt(ThumbIndex_Diff_x**2 + ThumbIndex_Diff_y**2)
+                ThumbIndex_Diff = int(math.sqrt(ThumbIndex_Diff))
+
+
+                
     
 
 
