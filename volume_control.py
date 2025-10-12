@@ -153,7 +153,7 @@ with mp_hands.Hands(
                 Pinky_Tip_x = pixelCoordinatesLandmark[0]
                 Pinky_Tip_y = pixelCoordinatesLandmark[1]
 
-                #-------
+                #------
     
 
 
