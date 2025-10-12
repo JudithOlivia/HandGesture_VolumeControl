@@ -105,8 +105,55 @@ with mp_hands.Hands(
                 Pinky_Pip_y = pixelCoordinatesLandmark[1]
 
 
-                
+                # ------
 
+                normalizedLandmark = hand_landmarks.landmark[5]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Index_Mcp_x = pixelCoordinatesLandmark[0]
+                Index_Mcp_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[9]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Middle_Mcp_x = pixelCoordinatesLandmark[0]
+                Middle_Mcp_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[13]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Ring_Mcp_x = pixelCoordinatesLandmark[0]
+                Ring_Mcp_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[17]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Pinky_Mcp_x = pixelCoordinatesLandmark[0]
+                Pinky_Mcp_y = pixelCoordinatesLandmark[1]
+
+                #---
+                normalizedLandmark = hand_landmarks.landmark[3]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Thumb_Ip_x = pixelCoordinatesLandmark[0]
+                Thumb_Ip_y = pixelCoordinatesLandmark[1]
+                
+                normalizedLandmark = hand_landmarks.landmark[8]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Index_Tip_x = pixelCoordinatesLandmark[0]
+                Index_Tip_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[12]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Middle_Tip_x = pixelCoordinatesLandmark[0]
+                Middle_Tip_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[16]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Ring_Tip_x = pixelCoordinatesLandmark[0]
+                Ring_Tip_y = pixelCoordinatesLandmark[1]
+
+                normalizedLandmark = hand_landmarks.landmark[20]
+                pixelCoordinatesLandmark = mp_drawing._normalized_to_pixel_coordinates(normalizedLandmark.x, normalizedLandmark.y, imageWidth, imageHeight)
+                Pinky_Tip_x = pixelCoordinatesLandmark[0]
+                Pinky_Tip_y = pixelCoordinatesLandmark[1]
+
+                #-------
     
 
 
